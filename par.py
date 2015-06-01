@@ -10,7 +10,6 @@ def partition(a):
         while left != right and a[left] <= pivot:
             left += 1
         a[left], a[right] = a[right], a[left]
-    a[left] = pivot
 
 def main():
     n = int(input())
