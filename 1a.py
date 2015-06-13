@@ -1,28 +1,28 @@
 #!/usr/bin/env python3
 
-def PatternCount(Text, Pattern):
+def pattern_count(text, pattern):
     count = 0
-    for i in range(len(Text) - len(Pattern) + 1):
-        if Text[i:i + len(Pattern)] == Pattern:
+    for i in range(len(text) - len(pattern) + 1):
+        if text[i:i + len(pattern)] == pattern:
             count += 1
     return count
 
-def FrequentWords(Text, k):
-    FrequentPatterns = set()
-    Count = []
-    for i in range(len(Text) - k + 1):
-        Pattern = Text[i:i + k]
-        Count.append(PatternCount(Text, Pattern))
-    maxCount = max(Count)
-    for i in range(len(Text) - k + 1):
-        if Count[i] == maxCount:
-            FrequentPatterns.add(Text[i:i + k])
-    return FrequentPatterns
+def frequent_words(text, k):
+    frequent_patterns = set()
+    counts = []
+    for i in range(len(text) - k + 1):
+        pattern = text[i:i + k]
+        counts.append(pattern_count(text, pattern))
+    max_count = max(counts)
+    for i in range(len(text) - k + 1):
+        if counts[i] == max_count:
+            frequent_patterns.add(text[i:i + k])
+    return frequent_patterns
 
 def main():
-    Text = input()
+    text = input()
     k = int(input())
-    print(' '.join(FrequentWords(Text, k)))
+    print(' '.join(frequent_words(text, k)))
 
 if __name__ == '__main__':
     main()
