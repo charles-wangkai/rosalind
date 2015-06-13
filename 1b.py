@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-COMPLEMENTS = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'};
+COMPLEMENTS = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
 
 def reverse_complement(pattern):
     return ''.join(reversed(list(map(lambda x: COMPLEMENTS[x], pattern))))
