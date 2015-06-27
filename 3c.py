@@ -18,7 +18,7 @@ def find_profile_most_probable_k_mer(text, profile):
 
 def main():
     text = input()
-    k = int(input())
+    _ = int(input())
     
     profile = []
     for _ in range(4):
