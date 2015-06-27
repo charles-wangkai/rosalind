@@ -27,29 +27,29 @@ def approximate_pattern_count(text, pattern, d):
             count += 1
     return count
 
-def appear_in_each(Dna, pattern, d):
-    return all(map(lambda s: approximate_pattern_count(s, pattern, d) > 0, Dna))
+def appear_in_each(dna, pattern, d):
+    return all(map(lambda s: approximate_pattern_count(s, pattern, d) > 0, dna))
 
-def motif_enumeration(Dna, k, d):
+def motif_enumeration(dna, k, d):
     patterns = set()
-    for i in range(len(Dna[0]) - k + 1):
-        pattern = Dna[0][i:i + k]
+    for i in range(len(dna[0]) - k + 1):
+        pattern = dna[0][i:i + k]
         for approximate_pattern in approximate_patterns(pattern, d):
-            if appear_in_each(Dna, approximate_pattern, d):
+            if appear_in_each(dna, approximate_pattern, d):
                 patterns.add(approximate_pattern)
     return patterns
 
 def main():
     k, d = map(int, input().split())
     
-    Dna = []
+    dna = []
     while True:
         try:
-            Dna.append(input())
+            dna.append(input())
         except EOFError:
             break
     
-    print(*motif_enumeration(Dna, k, d))
+    print(*motif_enumeration(dna, k, d))
 
 if __name__ == '__main__':
     main()
